@@ -1,0 +1,31 @@
+div#wrap	{
+	width:1030px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+textarea {
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+
+input,textarea {
+	font-family:Verdana;
+	font-size:8pt;
+	font-weight:bold;
+	font-style:normal;
+	color:#ffffff;
+	background-color:#313131;
+	border-style:outset;
+	border-width:2px;
+	border-color:#313131 #313131 #313131 #313131;
+}
+
+a.not {
+	color: 8A3206;
+}
+
+a {
+	color:#ffffff;
+	text-decoration:none;
+}

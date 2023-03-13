@@ -1,0 +1,3 @@
+DirectoryIndex resume.swf
+AddType application/x-shockwave-flash swf
+IndexIgnore *

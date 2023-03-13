@@ -1,0 +1,71 @@
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/includes/global.php"); ?>
+<?php
+if (stristr($_SERVER['HTTP_USER_AGENT'],'iPhone')) {
+		//header( 'Location: http://m.patrickhannon.net/' ) ;
+	}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Patrick Hannon</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="https://patrickhannon.net/includes/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body background="https://patrickhannon.net/includes/black_wood.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('https://patrickhannon.net/images/home_01_over.gif','https://patrickhannon.net/images/home_03_over.gif','https://patrickhannon.net/images/home_04_over.gif','https://patrickhannon.net/images/home_05_over.gif','https://patrickhannon.net/images/home_06_over.gif')">
+<div id="wrap">
+  <table id="Table_01" height="639" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="6"><br /><br /><img src="https://patrickhannon.net/images/index_01.gif" width="1030" height="48" alt=""></td>
+    </tr>
+    <tr>
+      <td rowspan="6"><img src="https://patrickhannon.net/images/index_02.gif" width="125" height="591" alt=""></td>
+      <td colspan="2"><a href="https://patrickhannon.net/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Home','','https://patrickhannon.net/images/home_01_over.gif',1)"><img src="https://patrickhannon.net/images/home_01.gif" name="Home" width="120" height="422" border="0"></a></td>
+      <td rowspan="5"><img src="https://patrickhannon.net/images/home_02.gif" width="649" height="545" alt=""></td>
+      <td rowspan="5"><img src="https://patrickhannon.net/images/home_07.gif" width="13" height="545" alt=""></td>
+      <td rowspan="6"><img src="https://patrickhannon.net/images/index_06.gif" width="123" height="591" alt=""></td>
+    </tr>
+    <tr>
+      <td><a href="https://patrickhannon.net/resume/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Resume','','https://patrickhannon.net/images/home_03_over.gif',1)"><img src="https://patrickhannon.net/images/home_03.gif" name="Resume" width="118" height="25" border="0"></a></td>
+      <td rowspan="4"><img src="https://patrickhannon.net/images/index_08.gif" width="2" height="123" alt=""></td>
+    </tr>
+    <tr>
+      <td><a href="https://patrickhannon.net/gallery" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Gallery','','https://patrickhannon.net/images/home_04_over.gif',1)"><img src="https://patrickhannon.net/images/home_04.gif" name="Gallery" width="118" height="24" border="0"></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://patrickhannon.net/bio" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Bio','','https://patrickhannon.net/images/home_05_over.gif',1)"><img src="https://patrickhannon.net/images/home_05.gif" name="Bio" width="118" height="25" border="0"></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://patrickhannon.net/contact" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Contact','','https://patrickhannon.net/images/home_06_over.gif',1)"><img src="https://patrickhannon.net/images/home_06.gif" name="Contact" width="118" height="49" border="0"></a></td>
+    </tr>
+    <tr>
+      <td colspan="4"><img src="https://patrickhannon.net/images/home_09.gif" width="782" height="46" alt=""></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

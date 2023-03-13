@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>Patrick Hannon</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="https://patrickhannon.net/includes/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body background="https://patrickhannon.net//includes/black_wood.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('https://patrickhannon.net/images/home_01_over.gif','https://patrickhannon.net/images/home_03_over.gif','https://patrickhannon.net/images/home_04_over.gif','https://patrickhannon.net/images/home_05_over.gif','https://patrickhannon.net/images/home_06_over.gif')">
+<table id="Table_01" height="639" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td colspan="9"><br /><br />
+			<img src="https://patrickhannon.net/images/index_01.gif" width="1030" height="48" alt=""></td>
+		<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="48" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="8">
+			<img src="https://patrickhannon.net/images/index_02.gif" width="125" height="591" alt=""></td>
+		<td colspan="2" rowspan="2"><a href="https://patrickhannon.net/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Home','','https://patrickhannon.net/images/home_01_over.gif',1)"><img src="https://patrickhannon.net/images/home_01.gif" name="Home" width="120" height="422" border="0"></a></td>
+<td colspan="4">
+			<img src="https://patrickhannon.net/images/home_02_other.gif" width="649" height="85" alt=""></td>
+		<td rowspan="7">
+			<img src="https://patrickhannon.net/images/home_07.gif" width="13" height="545" alt=""></td>
+		<td rowspan="8">
+			<img src="https://patrickhannon.net/images/index_06.gif" width="123" height="591" alt=""></td>
+		<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="85" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="6">
+			<img src="https://patrickhannon.net/images/home_02_other-08.gif" width="1" height="460" alt=""></td>
+		<td rowspan="5">
+			<img src="https://patrickhannon.net/images/index_08_other.gif" width="158" height="451" alt=""></td>
+		<td rowspan="5">
+       	  <table bgcolor="#000000" width="485" height="451"><tr><td align="center">
+		  <?php
+$code = $_GET['code'];
+if($code==1) {
+	$mailto = 'pat@patrickhannon.net' ;
+	$subject = "[PH.NET] Contact Form" ;
+	$thankyouurl = "?code=2" ;
+	$errorurl = "?code=3" ;
+
+	$email_is_required = 1;
+	$name_is_required = 1;
+	$uself = 0;
+	$use_envsender = 0;
+	$use_utf8 = 1;
+
+	$headersep = (!isset( $uself ) || ($uself == 0)) ? "\r\n" : "\n" ;
+	$content_type = (!isset( $use_utf8 ) || ($use_utf8 == 0)) ? 'Content-Type: text/plain; charset="iso-8859-1"' : 'Content-Type: text/plain; charset="utf-8"' ;
+	if (!isset( $use_envsender )) { $use_envsender = 0 ; }
+	$envsender = "-f$mailto" ;
+	$name = $_POST['name'] ;
+	$email = $_POST['email'] ;
+	$body = $_POST['body'] ;
+	$http_referrer = getenv( "HTTP_REFERER" );
+
+	if (($email_is_required && (empty($email) || !ereg("@", $email))) || ($name_is_required && empty($name))) {
+		header( "Location: $errorurl" );
+		exit ;
+	}
+	if ( ereg( "[\r\n]", $name ) || ereg( "[\r\n]", $email ) ) {
+		header( "Location: $errorurl" );
+		exit ;
+	}
+	if (empty($email)) {
+		$email = $mailto ;
+	}
+
+	if (get_magic_quotes_gpc()) {
+		$body = stripslashes( $body );
+	}
+
+	$messageproper =
+		"This message was sent from: " .
+		"$http_referrer\n\n" .
+		"Name of sender: $name\n" .
+		"Email of sender: $email\n\n" .
+		"Body:\n\n" .
+		$body;
+
+	$headers =
+		"From: \"$name\" <$email>" . $headersep . "Reply-To: \"$name\" <$email>" . $headersep . "X-Mailer: contact.php" .
+		$headersep . 'MIME-Version: 1.0' . $headersep . $content_type ;
+
+	if ($use_envsender) {
+		mail($mailto, $subject, $messageproper, $headers, $envsender );
+	}
+	else {
+		mail($mailto, $subject, $messageproper, $headers );
+	}
+	header( "Location: $thankyouurl" );
+	exit ;
+}
+else if ($code==2){
+	echo '<font face="Verdana" color="#8A3206"><b>Your email has been submited.<br /><br />You will receive a response as soon as possible.<br /><br /><br /><br /><br /><br /></font>';
+}
+else if ($code==3){
+	echo '<font face="Verdana" color="#8A3206"><b>There was an error in your submission.<br /><br />Please <a href="javascript:history.back()">go back</a> and try again.<br /><br /><br /><br /><br /><br /></font>';
+}
+else {
+	echo '<form action="?code=1" method="post">
+      <table border="0" cellpadding="4" cellspacing="4">
+        <tr>
+          <td><font size="-1" color="#8A3206" face="Verdana"><b>Name:</b></font></td>
+          <td align="right"><input type="text" name="name" size="35" /></td>
+        </tr>
+        <tr>
+          <td><font size="-1" color="#8A3206" face="Verdana"><b>Email:</b></font></td>
+          <td align="right"><input type="text" name="email" size="35" /></td>
+        </tr>
+        <tr>
+          <td colspan="2"><textarea rows="15" cols="60%" name="body" wrap="virtual"></textarea></td>
+        </tr>
+        <tr>
+          <td align="right" colspan="2"><input type="submit" value="Send Email" />&nbsp;&nbsp;<input type="reset" value="Clear Form" /></td>
+        </tr>
+      </table>
+	</form>';
+}
+?>
+		  </td></tr></table>
+		  </td>
+
+		<td rowspan="6">
+			<img src="https://patrickhannon.net/images/home_02_other-11.gif" width="5" height="460" alt=""></td>
+		<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="337" alt=""></td>
+	</tr>
+	<tr>
+		<td><a href="https://patrickhannon.net/resume/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Resume','','https://patrickhannon.net/images/home_03_over.gif',1)"><img src="https://patrickhannon.net/images/home_03.gif" name="Resume" width="118" height="25" border="0"></a></td>
+<td rowspan="5">
+			<img src="https://patrickhannon.net/images/index_12.gif" width="2" height="123" alt=""></td>
+		<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="25" alt=""></td>
+	</tr>
+	<tr>
+		<td><a href="https://patrickhannon.net/gallery" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Gallery','','https://patrickhannon.net/images/home_04_over.gif',1)"><img src="https://patrickhannon.net/images/home_04.gif" name="Gallery" width="118" height="24" border="0"></a></td>
+<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="24" alt=""></td>
+	</tr>
+	<tr>
+		<td><a href="https://patrickhannon.net/bio" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Bio','','https://patrickhannon.net/images/home_05_over.gif',1)"><img src="https://patrickhannon.net/images/home_05.gif" name="Bio" width="118" height="25" border="0"></a></td>
+<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="25" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="2"><a href="https://patrickhannon.net/contact" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Contact','','https://patrickhannon.net/images/home_06_over.gif',1)"><img src="https://patrickhannon.net/images/home_06.gif" name="Contact" width="118" height="49" border="0"></a></td>
+<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="40" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="https://patrickhannon.net/images/home_02_other-17.gif" width="643" height="9" alt=""></td>
+		<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="9" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="7">
+			<img src="https://patrickhannon.net/images/home_09.gif" width="782" height="46" alt=""></td>
+		<td>
+			<img src="https://patrickhannon.net/images/spacer.gif" width="1" height="46" alt=""></td>
+	</tr>
+</table>
+</body>
+</html>
