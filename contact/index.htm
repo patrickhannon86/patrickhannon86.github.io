@@ -57,74 +57,7 @@ function MM_swapImage() { //v3.0
 			<img src="https://patrickhannon.net/images/index_08_other.gif" width="158" height="451" alt=""></td>
 		<td rowspan="5">
        	  <table bgcolor="#000000" width="485" height="451"><tr><td align="center">
-		  <?php
-$code = $_GET['code'];
-if($code==1) {
-	$mailto = 'pat@patrickhannon.net' ;
-	$subject = "[PH.NET] Contact Form" ;
-	$thankyouurl = "?code=2" ;
-	$errorurl = "?code=3" ;
-
-	$email_is_required = 1;
-	$name_is_required = 1;
-	$uself = 0;
-	$use_envsender = 0;
-	$use_utf8 = 1;
-
-	$headersep = (!isset( $uself ) || ($uself == 0)) ? "\r\n" : "\n" ;
-	$content_type = (!isset( $use_utf8 ) || ($use_utf8 == 0)) ? 'Content-Type: text/plain; charset="iso-8859-1"' : 'Content-Type: text/plain; charset="utf-8"' ;
-	if (!isset( $use_envsender )) { $use_envsender = 0 ; }
-	$envsender = "-f$mailto" ;
-	$name = $_POST['name'] ;
-	$email = $_POST['email'] ;
-	$body = $_POST['body'] ;
-	$http_referrer = getenv( "HTTP_REFERER" );
-
-	if (($email_is_required && (empty($email) || !ereg("@", $email))) || ($name_is_required && empty($name))) {
-		header( "Location: $errorurl" );
-		exit ;
-	}
-	if ( ereg( "[\r\n]", $name ) || ereg( "[\r\n]", $email ) ) {
-		header( "Location: $errorurl" );
-		exit ;
-	}
-	if (empty($email)) {
-		$email = $mailto ;
-	}
-
-	if (get_magic_quotes_gpc()) {
-		$body = stripslashes( $body );
-	}
-
-	$messageproper =
-		"This message was sent from: " .
-		"$http_referrer\n\n" .
-		"Name of sender: $name\n" .
-		"Email of sender: $email\n\n" .
-		"Body:\n\n" .
-		$body;
-
-	$headers =
-		"From: \"$name\" <$email>" . $headersep . "Reply-To: \"$name\" <$email>" . $headersep . "X-Mailer: contact.php" .
-		$headersep . 'MIME-Version: 1.0' . $headersep . $content_type ;
-
-	if ($use_envsender) {
-		mail($mailto, $subject, $messageproper, $headers, $envsender );
-	}
-	else {
-		mail($mailto, $subject, $messageproper, $headers );
-	}
-	header( "Location: $thankyouurl" );
-	exit ;
-}
-else if ($code==2){
-	echo '<font face="Verdana" color="#8A3206"><b>Your email has been submited.<br /><br />You will receive a response as soon as possible.<br /><br /><br /><br /><br /><br /></font>';
-}
-else if ($code==3){
-	echo '<font face="Verdana" color="#8A3206"><b>There was an error in your submission.<br /><br />Please <a href="javascript:history.back()">go back</a> and try again.<br /><br /><br /><br /><br /><br /></font>';
-}
-else {
-	echo '<form action="?code=1" method="post">
+<form action="?code=1" method="post">
       <table border="0" cellpadding="4" cellspacing="4">
         <tr>
           <td><font size="-1" color="#8A3206" face="Verdana"><b>Name:</b></font></td>
@@ -141,9 +74,7 @@ else {
           <td align="right" colspan="2"><input type="submit" value="Send Email" />&nbsp;&nbsp;<input type="reset" value="Clear Form" /></td>
         </tr>
       </table>
-	</form>';
-}
-?>
+	</form>
 		  </td></tr></table>
 		  </td>
 
